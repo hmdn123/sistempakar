@@ -15,7 +15,7 @@
             </a>
         </li>
         <li class="sidebar-item {{ $title == 'Master Akun' ? 'active' : '' }}">
-            <a href="/master-akun" class='sidebar-link'>
+            <a href="/penyakit" class='sidebar-link'>
                 <i class="bi bi-bandaid-fill"></i>
                 <span>Penyakit</span>
             </a>

@@ -2,9 +2,8 @@
 
 @section('main')
     @php
-        use App\Models\Masterakun;
-        use App\Models\Pemasukan;
-        use App\Models\Pengeluaran;
+        use App\Models\Penyakit;
+        use App\Models\Indikator;
         use App\Models\User;
     @endphp
     <div class="page-heading">
@@ -25,7 +24,7 @@
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Jumlah Penyakit</h6>
                                     <h6 class="font-extrabold mb-0">
-                                        {{-- {{ number_format(Pemasukan::all()->sum('jumlah_pemasukan')) }}</h6> --}}
+                                        {{ number_format(Penyakit::all()->count()) }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -41,9 +40,9 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Jumlah Indikator</h6>
+                                    <h6 class="text-muted font-semibold">Indikator</h6>
                                     <h6 class="font-extrabold mb-0">
-                                        {{-- {{ number_format(Pengeluaran::all()->sum('jumlah_pengeluaran')) }}</h6> --}}
+                                        {{ number_format(Indikator::all()->count()) }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Data Pengguna Aplikasi</h6>
+                                    <h6 class="text-muted font-semibold">Pengguna Aplikasi</h6>
                                     {{-- <h6 class="font-extrabold mb-0">{{ count(Masterakun::all()) }}</h6> --}}
                                 </div>
                             </div>

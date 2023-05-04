@@ -6,6 +6,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MasterakunController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\PenyakitController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('/indikator', IndikatorController::class);
+    Route::resource('/penyakit', PenyakitController::class);
 });
 
 require __DIR__ . '/auth.php';
