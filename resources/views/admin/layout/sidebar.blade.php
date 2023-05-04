@@ -21,13 +21,13 @@
             </a>
         </li>
         <li class="sidebar-item {{ $title == 'Master Akun' ? 'active' : '' }}">
-            <a href="/master-akun" class='sidebar-link'>
+            <a href="/input-rules" class='sidebar-link'>
                 <i class="bi bi-blockquote-right"></i>
-                <span>Inputan Rull</span>
+                <span>Masukan Aturan</span>
             </a>
         </li>
         <li class="sidebar-item {{ $title == 'Master Akun' ? 'active' : '' }}">
-            <a href="/master-akun" class='sidebar-link'>
+            <a href="/data-pengguna" class='sidebar-link'>
                 <i class="bi bi-person-badge-fill"></i>
                 <span>Data Pengguna</span>
             </a>
