@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IndikatorController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MasterakunController;
 use App\Http\Controllers\PemasukanController;
@@ -28,7 +29,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('/indikator', MasterakunController::class);
+    Route::resource('/indikator', IndikatorController::class);
 });
 
 require __DIR__ . '/auth.php';
