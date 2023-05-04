@@ -40,7 +40,7 @@ class IndikatorController extends Controller
         $lastItem = Indikator::orderBy('kode', 'desc')->first();
 
         if ($lastItem) {
-            $lastCode = $lastItem->code;
+            $lastCode = $lastItem->kode;
             $number = substr($lastCode, 1);
             $nextNumber = str_pad($number + 1, strlen($number), '0', STR_PAD_LEFT);
             $code = 'A' . $nextNumber;
