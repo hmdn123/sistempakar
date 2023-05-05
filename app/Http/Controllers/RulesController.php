@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aturan;
 use Illuminate\Http\Request;
 
 class RulesController extends Controller
@@ -34,7 +35,11 @@ class RulesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $model = new Aturan();
+        $model->kode_indikator = $request->kode_indikator;
+        $model->kode_penyakit = $request->kode_penyakit;
+        $model->save();
+        return back();
     }
 
     /**
@@ -79,6 +84,8 @@ class RulesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model = Aturan::find($id);
+        $model->delete();
+        return back();
     }
 }

@@ -6,7 +6,7 @@
         use App\Models\Indikator;
         use App\Models\User;
     @endphp
-    <div class="page-heading">
+    <div class="page-heading text-center">
         <h3>Dashboard Sistem Pakar Penyakit Bawang</h3>
     </div>
     <div class="page-content">
