@@ -50,6 +50,7 @@ class PenyakitController extends Controller
 
         $model = new Penyakit();
         $model->penyakit = $request->penyakit;
+        $model->solusi = $request->solusi;
         $model->kode = $code;
         $model->save();
         return back();
@@ -88,6 +89,7 @@ class PenyakitController extends Controller
     {
         $model = Penyakit::find($id);
         $model->penyakit = $request->penyakit;
+        $model->solusi = $request->solusi;
         $model->save();
         return back();
     }

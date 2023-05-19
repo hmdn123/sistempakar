@@ -30,8 +30,8 @@
                                 </div>
                                 <div id="emailHelp" class="form-text mb-3">Kode akan secara otomatis tergenerate</div>
                                 <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Solusi Pengobatan</label>
+                                    <textarea class="form-control" name="solusi" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -63,6 +63,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $penyakit->kode }}</td>
                                 <td>{{ Str::title($penyakit->penyakit) }}</td>
+                                <td>{{ str::limit($penyakit->solusi, 50, '...') }}</td>
                                 <td class="d-flex gap-2">
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#edit{{ $penyakit->id }}">
@@ -96,8 +97,13 @@
                                                             value="{{ Str::title($penyakit->penyakit) }}"
                                                             placeholder="Masukan penyakit" id="penyakit-form">
                                                     </div>
-                                                    <div id="emailHelp" class="form-text">Kode akan secara otomatis
+                                                    <div id="emailHelp" class="form-text mb-3">Kode akan secara otomatis
                                                         tergenerate
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Solusi
+                                                            Pengobatan</label>
+                                                        <textarea class="form-control" name="solusi" id="exampleFormControlTextarea1" rows="3">{{ $penyakit->solusi }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,7 +145,7 @@
                             {{-- end delete model --}}
                         @endforeach
                     @else
-                        <td colspan="4" class="text-center">Tidak ada data tersedia</td>
+                        <td colspan="5" class="text-center">Tidak ada data tersedia</td>
                     @endif
                 </tbody>
             </table>
