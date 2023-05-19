@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/temukan-penyakit', [HomeController::class, 'temukanPenyakit'])->name('temukanPenyakit');
 
 Route::get('/login', function () {
     return view('auth.login');

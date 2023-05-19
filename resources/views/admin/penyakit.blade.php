@@ -2,11 +2,11 @@
 
 @section('main')
     <div class="page-heading">
-        <h3>Penyakit</h3>
+        <h3>Penyakit dan Solusi</h3>
     </div>
     <div class="card">
         <div class="card-header d-flex justify-content-between">
-            <h5>Tambahkan Penyakit</h5>
+            <h5>Tambahkan Penyakit Dan Solusi</h5>
             <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambah">Tambah
                 Penyakit</button>
         </div>
@@ -28,7 +28,11 @@
                                     <input class="form-control" name="penyakit" placeholder="Masukan penyakit"
                                         id="penyakit-form">
                                 </div>
-                                <div id="emailHelp" class="form-text">Kode akan secara otomatis tergenerate</div>
+                                <div id="emailHelp" class="form-text mb-3">Kode akan secara otomatis tergenerate</div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -48,6 +52,7 @@
                         <th scope="col">No</th>
                         <th scope="col">Kode</th>
                         <th scope="col">Penyakit</th>
+                        <th scope="col">Solusi</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
