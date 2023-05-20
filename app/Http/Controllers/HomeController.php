@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aturan;
+use App\Models\Penyakit;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,6 +16,15 @@ class HomeController extends Controller
     public function temukanPenyakit(Request $request)
     {
         $indikator = $request->indikator;
+        $nama = $request->nama;
+        $alamat = $request->alamat;
+        $nomor = $request->nomor;
+        $luas_lahan = $request->luas_lahan;
+
+        if ($indikator == null || $nama = null || $alamat = null || $nomor == null || $luas_lahan == null) {
+            dd('kosong');
+            $pesan = "Lengkapi semua informasi yang diperlukan untuk mendapatkan hasil";
+        }
 
         $penyakitcek = Aturan::select('kode_penyakit')
             ->groupBy('kode_penyakit')
@@ -26,36 +36,20 @@ class HomeController extends Controller
                 ->toArray();
         }
 
-        $result = [];
+        $hasil = [];
 
         foreach ($kode_indikator as $key => $value) {
             $intersect = array_intersect($indikator, $value);
             if (count($intersect) == count($value)) {
-                $result[] = $key;
+                $hasil[] = $key;
             }
         }
+        $result = Penyakit::whereIn('kode', $hasil)->get();
 
-        return $result;
-
-        // $aturans = Aturan::whereIn('kode_indikator', $indikator)->get();
-        // $countAturan = count($aturans);
-        // $countIndikator = count($indikator);
-        // foreach ($aturans as $aturan) {
-        //     $penyakit[] = $aturan->penyakit->penyakit;
-        // }
-
-        // $penyakitUnik = array_unique($penyakit);
-        // $isPenyakitSama = count($penyakitUnik) === 1;
-
-        // dd($penyakit);
-
-        // if ($countAturan != $countIndikator) {
-        //     dd('tidak ada penyakit');
-        // } elseif ($isPenyakitSama) {
-        //     $penyakitTunggal = reset($penyakit);
-        //     dd($penyakitTunggal);
-        // } else {
-        //     dd('tidak ada penyakit');
-        // }
+        if ($hasil == null) {
+            return view('hasil', ['pesan' => 'Maaf, penyakit tidak ditemukan']);
+        } else {
+            return view('hasil', ['results' => $result, 'pesan' => '']);
+        }
     }
 }
