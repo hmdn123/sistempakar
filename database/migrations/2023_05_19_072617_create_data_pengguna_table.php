@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('nomor');
             $table->string('luas_lahan');
-            $table->string('kode_penyakit');
+            $table->string('kode_penyakit')->nullable();
             $table->timestamps();
         });
     }

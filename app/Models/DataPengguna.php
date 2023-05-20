@@ -10,4 +10,9 @@ class DataPengguna extends Model
     use HasFactory;
 
     protected $table = 'data_pengguna';
+
+    public function penyakit()
+    {
+        return $this->belongsTo(Penyakit::class, 'kode_penyakit', 'kode');
+    }
 }

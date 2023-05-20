@@ -18,11 +18,11 @@
                     <div class="carousel-item active">
                         <div class="card-body">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
+                                <label for="nama" class="form-label">Nama Lengkap</label>
                                 <input type="text" class="form-control" name="nama">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                                <label for="alamat" class="form-label">Alamat</label>
                                 <input type="text" class="form-control" name="alamat">
                             </div>
                             <div class="mb-3">
@@ -30,7 +30,7 @@
                                 <input type="number" class="form-control" id="nomor" name="nomor">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Luas Lahan</label>
+                                <label for="luas_lahan" class="form-label">Luas Lahan</label>
                                 <input type="text" class="form-control" name="luas_lahan" placeholder="500m persegi">
                             </div>
                         </div>
