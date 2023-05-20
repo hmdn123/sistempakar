@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataPenggunaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndikatorController;
 use App\Http\Controllers\PenyakitController;
@@ -36,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/indikator', IndikatorController::class);
     Route::resource('/penyakit', PenyakitController::class);
     Route::resource('/input-rules', RulesController::class);
+    Route::resource('/data-pengguna', DataPenggunaController::class);
 });
 
 require __DIR__ . '/auth.php';

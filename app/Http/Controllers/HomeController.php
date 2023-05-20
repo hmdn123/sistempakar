@@ -51,6 +51,7 @@ class HomeController extends Controller
         $model->alamat = $request->alamat;
         $model->nomor = $nomor;
         $model->luas_lahan = $luas_lahan;
+        $model->kode_indikator = json_encode($indikator);
         $model->kode_penyakit = json_encode($hasil);
         $model->save();
 

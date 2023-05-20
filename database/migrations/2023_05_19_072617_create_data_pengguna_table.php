@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nomor');
             $table->string('luas_lahan');
             $table->string('kode_penyakit')->nullable();
+            $table->string('kode_indikator')->nullable();
             $table->timestamps();
         });
     }
