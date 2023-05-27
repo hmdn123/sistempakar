@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode');
             $table->string('penyakit');
-            $table->string('solusi', 1000);
+            $table->longText('solusi');
             $table->timestamps();
         });
     }
