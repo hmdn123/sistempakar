@@ -39,6 +39,12 @@
                 <span>Data Pengguna</span>
             </a>
         </li>
+        {{-- <li class="sidebar-item {{ $title == 'Setelan Pengguna' ? 'active' : '' }}">
+            <a href="/setelan-pengguna" class='sidebar-link'>
+                <i class="bi bi-person-fill"></i>
+                <span>Setelan Pengguna</span>
+            </a>
+        </li> --}}
         <li class="sidebar-item">
             <form action="{{ url('logout') }}" method="post">
                 @csrf

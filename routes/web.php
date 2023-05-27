@@ -25,6 +25,10 @@ Route::get('/temukan-penyakit-bawang', function () {
     return view('hasil');
 });
 
+Route::get('/setelan-pengguna', function () {
+    return view('hasil');
+});
+
 Route::get('/login', function () {
     return view('auth.login');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aturan;
 use App\Models\Penyakit;
 use Illuminate\Http\Request;
 
@@ -103,6 +104,8 @@ class PenyakitController extends Controller
     public function destroy($id)
     {
         $model = Penyakit::find($id);
+        $aturan = Aturan::where('kode_penyakit', $model->kode);
+        $aturan->delete();
         $model->delete();
         return back();
     }

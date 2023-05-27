@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aturan;
 use App\Models\Indikator;
 use Illuminate\Http\Request;
 
@@ -101,7 +102,10 @@ class IndikatorController extends Controller
     public function destroy($id)
     {
         $model = Indikator::find($id);
+        $aturan = Aturan::where('kode_indikator', $model->kode);
+        $aturan->delete();
         $model->delete();
+
         return back();
     }
 }
