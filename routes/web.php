@@ -3,6 +3,7 @@
 use App\Http\Controllers\DataPenggunaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndikatorController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PenyakitController;
 use App\Http\Controllers\RulesController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,24 @@ Route::middleware('auth')->group(function () {
     Route::resource('/penyakit', PenyakitController::class);
     Route::resource('/input-rules', RulesController::class);
     Route::resource('/data-pengguna', DataPenggunaController::class);
+
+    // Export Indiktor
+    Route::get('/export-indikator-excel', function () {
+        return view('export.indikator.indikator_excel');
+    });
+    Route::get('/export-indikator-pdf', [PdfController::class, 'exportIndikator'])->name('export.indikator.pdf');
+
+    // Export penyakit
+    Route::get('/export-penyakit-excel', function () {
+        return view('export.penyakit.penyakit_excel');
+    });
+    Route::get('/export-penyakit-pdf', [PdfController::class, 'exportPenyakit'])->name('export.penyakit.pdf');
+
+    // Export data pengguna
+    Route::get('/export-pengguna-excel', function () {
+        return view('export.pengguna.pengguna_excel');
+    });
+    Route::get('/export-pengguna-pdf', [PdfController::class, 'exportPengguna'])->name('export.pengguna.pdf');
 });
 
 require __DIR__ . '/auth.php';

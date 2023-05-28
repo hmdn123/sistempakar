@@ -7,8 +7,20 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <h5>Tambahkan Penyakit Dan Solusi</h5>
-            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambah">Tambah
-                Penyakit</button>
+            <div class="dropdown">
+                <div>
+                    <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Export
+                    </button>
+                    <ul class="dropdown-menu border">
+                        <li><a class="dropdown-item" href="export-penyakit-pdf">Export PDF</a></li>
+                        <li><a class="dropdown-item" href="export-penyakit-excel">Export Excel</a></li>
+                    </ul>
+                    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal"
+                        data-bs-target="#tambah">+</button>
+                </div>
+            </div>
         </div>
 
         {{-- modal tambah data --}}
@@ -46,8 +58,11 @@
         {{-- End modal tambah --}}
 
         <div class="card-body">
+            <div class="mb-3">
+                <input type="search" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Pencarian...">
+            </div>
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
@@ -98,7 +113,8 @@
                                                                 value="{{ Str::title($penyakit->penyakit) }}"
                                                                 placeholder="Masukan penyakit" id="penyakit-form">
                                                         </div>
-                                                        <div id="emailHelp" class="form-text mb-3">Kode akan secara otomatis
+                                                        <div id="emailHelp" class="form-text mb-3">Kode akan secara
+                                                            otomatis
                                                             tergenerate
                                                         </div>
                                                         <div class="mb-3">
@@ -154,4 +170,27 @@
             </div>
         </div>
     </div>
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+
+                for (var j = 0; j < td.length; j++) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                        break;
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 @endsection
