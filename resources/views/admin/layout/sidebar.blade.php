@@ -15,25 +15,25 @@
                 <span>Dashboard</span>
             </a>
         </li>
-        <li class="sidebar-item {{ $title == 'Master Akun' ? 'active' : '' }}">
+        <li class="sidebar-item {{ $title == 'Indikator' ? 'active' : '' }}">
             <a href="/indikator" class='sidebar-link'>
                 <i class="bi bi-bag-plus-fill"></i>
                 <span>Indikator</span>
             </a>
         </li>
-        <li class="sidebar-item {{ $title == 'Master Akun' ? 'active' : '' }}">
+        <li class="sidebar-item {{ $title == 'Penyakit' ? 'active' : '' }}">
             <a href="/penyakit" class='sidebar-link'>
                 <i class="bi bi-bandaid-fill"></i>
                 <span>Penyakit</span>
             </a>
         </li>
-        <li class="sidebar-item {{ $title == 'Master Akun' ? 'active' : '' }}">
+        <li class="sidebar-item {{ $title == 'Aturan' ? 'active' : '' }}">
             <a href="/input-rules" class='sidebar-link'>
                 <i class="bi bi-blockquote-right"></i>
                 <span>Masukan Aturan</span>
             </a>
         </li>
-        <li class="sidebar-item {{ $title == 'Master Akun' ? 'active' : '' }}">
+        <li class="sidebar-item {{ $title == 'Data Pengguna' ? 'active' : '' }}">
             <a href="/data-pengguna" class='sidebar-link'>
                 <i class="bi bi-person-badge-fill"></i>
                 <span>Data Pengguna</span>

@@ -27,7 +27,7 @@ Route::get('/temukan-penyakit-bawang', function () {
 });
 
 Route::get('/setelan-pengguna', function () {
-    return view('hasil');
+    return view('admin.setelan');
 });
 
 Route::get('/login', function () {

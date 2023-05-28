@@ -2,7 +2,7 @@
     use App\Models\Penyakit;
 @endphp
 
-@extends('admin.layout.main', ['title' => 'Indikator'])
+@extends('admin.layout.main', ['title' => 'Data Pengguna'])
 
 @section('main')
     <div class="page-heading">
