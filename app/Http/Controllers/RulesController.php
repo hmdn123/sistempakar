@@ -38,6 +38,15 @@ class RulesController extends Controller
         $model = new Aturan();
         $model->kode_indikator = $request->kode_indikator;
         $model->kode_penyakit = $request->kode_penyakit;
+
+        $existingData = Aturan::where('kode_indikator', $request->kode_indikator)
+            ->where('kode_penyakit', $request->kode_penyakit)
+            ->first();
+
+        if ($existingData) {
+            return back()->withErrors('Data sudah tersedia.')->withInput();
+        }
+
         $model->save();
         return back();
     }

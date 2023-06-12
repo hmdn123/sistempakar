@@ -61,6 +61,15 @@
         {{-- End modal tambah --}}
 
     </div>
+    <!-- resources/views/error.blade.php -->
+
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Data sudah tersedia,</strong> silahkan coba dengan yang lain
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     @if (Aturan::all()->isNotEmpty())
         @foreach (Aturan::distinct()->get('kode_penyakit') as $aturan)
             <div class="card shadow">
@@ -131,7 +140,8 @@
                         <form action="{{ url('input-rules') }}" method="POST">
                             @csrf
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $aturan->penyakit->penyakit }}</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $aturan->penyakit->penyakit }}
+                                </h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -142,9 +152,17 @@
                                         <select class="form-select" aria-label="Default select example"
                                             name="kode_indikator">
                                             @foreach (Indikator::all() as $indikator)
-                                                <option value="{{ $indikator->kode }}">
-                                                    {{ Str::title($indikator->indikator) }}</option>
+                                                @php
+                                                    $existingCodes = Aturan::pluck('kode_indikator')->toArray();
+                                                @endphp
+
+                                                @if (!in_array($indikator->kode, $existingCodes))
+                                                    <option value="{{ $indikator->kode }}">
+                                                        {{ Str::title($indikator->indikator) }}
+                                                    </option>
+                                                @endif
                                             @endforeach
+
                                         </select>
                                     </div>
                                 </div>
