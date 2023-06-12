@@ -152,17 +152,10 @@
                                         <select class="form-select" aria-label="Default select example"
                                             name="kode_indikator">
                                             @foreach (Indikator::all() as $indikator)
-                                                @php
-                                                    $existingCodes = Aturan::pluck('kode_indikator')->toArray();
-                                                @endphp
-
-                                                @if (!in_array($indikator->kode, $existingCodes))
-                                                    <option value="{{ $indikator->kode }}">
-                                                        {{ Str::title($indikator->indikator) }}
-                                                    </option>
-                                                @endif
+                                                <option value="{{ $indikator->kode }}">
+                                                    {{ Str::title($indikator->indikator) }}
+                                                </option>
                                             @endforeach
-
                                         </select>
                                     </div>
                                 </div>
