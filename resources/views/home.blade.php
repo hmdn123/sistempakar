@@ -9,7 +9,7 @@
 <div class="container">
     <div class="card shadow">
         <div class="card-header">
-            <h4 class="text-center">Lengkapi Informasi Dibawah Ini</h4>
+            <h4 class="text-center">Lengkapi Informasi Dibawah Ini ya !!</h4>
         </div>
         <div id="carouselExampleIndicators" class="carousel slide">
             <form action="{{ url('temukan-penyakit') }}" method="POST">
